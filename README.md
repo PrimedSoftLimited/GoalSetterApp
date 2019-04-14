@@ -1,3 +1,2 @@
 # FrontEndGoalSetterApp
 # FrontEndGoalSetterApp
-# GoalSetterApp
