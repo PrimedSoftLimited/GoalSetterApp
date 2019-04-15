@@ -33,6 +33,9 @@
     width: 50px;
     border-radius: 50px; 
 }
+.chat_name {
+    margin-top: 40px;
+}
 #chat_msg {
     border: 1px solid skyblue; 
     width:80%;

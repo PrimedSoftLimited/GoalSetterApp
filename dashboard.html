@@ -631,7 +631,7 @@
             </div>
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title stat_name" id="bigName2"></h4>
+              <h4 class="modal-title stat_name" id="bigName2">External Team Statistics</h4>
               <button class="btn btn-primary cls" type="button" data-target="#myModal" data-dismiss="modal">
                 Close
               </button>
@@ -656,6 +656,42 @@
         </div>
       </div>
     </div>
+    <!--External Statistic--->
+    <div class="container mt-4">
+      <div class="modal fade" id="myTeamStat">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div id="spin_bx">
+              <div class="spinner-border text-muted" id="spin_edit"></div>
+            </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title stat_name" id="bigName2">My Team Statistics</h4>
+              <button class="btn btn-primary cls" type="button" data-target="#myModal" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+            <div id="show_success" class="msg_alert_box">
+    
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-6">
+                  <label style="color:#3768a0; font-weight: bold;">Total Team:</label>
+                  <div>
+                    <input type="text" style="width:100%; color:#3768a0; font-weight: bold; font-size: 20px;" class="field"
+                      id="tm" disabled>
+                  </div>
+                </div>
+    
+              </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
   <!-- Delete Profile -->
   <div class="container mt-4">
     <div class="modal fade" id="myModal6">
@@ -826,13 +862,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <img class="chat_image" id="chat_image" src="images/text_loader.gif" />
-        <h5 class="modal-title" id="chat_name">
-          <img  src="images/text_loader.gif" />
-        </h5>
-        <div id="presence_status">
-            <div style="margin-top:20px; padding:5px; border-radius:200px; background: lightgreen;"></div>
-            <!-- <div style="margin-top:15px;padding:5px; border-radius:200px; background: red;"></div> -->
-        </div> 
+        <div class="chat_name">
+          <h5 class="modal-title" id="chat_name">
+            <img  src="images/text_loader.gif" />
+          </h5>
+          <div id="presence_status">
+            <!-- <div style="color: lightgreen;">online</div> -->
+            <div style="color: red;">offline</div>
+          </div>
+        </div>
         <button style="padding:5px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -866,13 +904,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <img class="chat_image" id="assign_chat_image" src="images/text_loader.gif" />
-          <h5 class="modal-title chat_name" id="assign_chat_name">
+        <div class="chat_name">
+          <h5 class="modal-title" id="assign_chat_name">
             <img src="images/text_loader.gif" />
           </h5>
-        <div id="presence_status">
-          <div style="margin-top:20px; padding:5px; border-radius:200px; background: lightgreen;"></div>
-          <!-- <div style="margin-top:15px;padding:5px; border-radius:200px; background: red;"></div> -->
+            <div id="presence_status">
+              <div style="color: lightgreen;">online</div>
+              <!-- <div style="color: red;">offline</div> -->
+            </div>
         </div>
+     
         <button style="padding:5px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

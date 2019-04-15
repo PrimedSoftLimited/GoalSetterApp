@@ -163,6 +163,8 @@ function loadTeams() {
             }
         _("#create_team_btn").innerHTML = `
                 <div class="modal-footer">
+                     <button type="button" style="border-color: rgb(117, 223, 117);" class="fa fa-pen btn btn-primary" data-toggle="modal"
+                    data-target="#myTeamStat"> Statistics </button>
                     <button type="button" style="border-color: rgb(117, 223, 117);" class="fa fa-pen btn btn-primary" data-toggle="modal"
                     data-target="#myModacreateTeam"> Create Team</button>
                 </div>

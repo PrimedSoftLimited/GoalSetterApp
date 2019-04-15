@@ -426,14 +426,17 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <img id="chat_image" src="images/text_loader.gif" />
-                    <h5 class="modal-title" id="chat_name">
-                        <img id="chat_image"src="images/text_loader.gif" />
-                    </h5>
-                    <div id="presence_status">
-                        <div style="margin-top:20px; padding:5px; border-radius:200px; background: lightgreen;"></div>
-                        <!-- <div style="margin-top:15px;padding:5px; border-radius:200px; background: red;"></div> -->
+                    <img class="chat_image" id="chat_image" src="images/text_loader.gif" />
+                    <div class="chat_name">
+                        <h5 class="modal-title" id="chat_name">
+                            <img  id="chat_image"src="images/text_loader.gif" />
+                        </h5>
+                        <div id="presence_status">
+                            <div style="color: lightgreen;">online</div>
+                            <!-- <div style="color: red;">offline</div> -->
+                        </div>
                     </div>
+                    
                     <button style="padding:5px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -560,7 +563,7 @@
             var member_user_image = $(this).data('userimage');
             var member_created = $(this).data('getadded');
 
-           $("#chat_name").html(member_name + "&nbsp;");
+           $("#chat_name").html("&nbsp;"+member_name + "&nbsp;");
             $("#member_id_assign").val(member_id);
             $("#member_id_delete").val(member_id);
             $("#rel_id_delete").val(rel_id);

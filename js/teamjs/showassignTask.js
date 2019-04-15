@@ -34,11 +34,13 @@ function assignTo(){
                 var gap = '<div style="height:1px;"></div>';
             }
             if (assign_to[counter][2].task_status == 1) {
+                var indicator = '<div style="position:absolute;padding:3px; width:5px; border-radius:200px; background: lightgreen;"></div>';
                 var status = "<p style='color:green;margin:0;'>Competed</p>";
             }else{
+                var indicator = '<div style="position:absolute;padding:3px; width:5px; border-radius:200px; background: tomato;"></div>';
                 var status = "<p style='color:tomato;margin:0;'>Not Competed</p>";
             }
-            if (assign_to[counter][1].task_status == 1) {
+            if (assign_to[counter][1].goal_status == 1) {
                 var status_goal = "<p style='color:green;margin:0;'>Competed</p>";
             } else {
                 var status_goal = "<p style='color:tomato;margin:0;'>Not Competed</p>";
@@ -61,7 +63,10 @@ function assignTo(){
                     ${assign_to[counter][0].name}&nbsp;
                 
                     </div>
-                    <div id="tiny_font" class="col-3" style="margin-top:20px;font-weight: bold;">
+                    <div id="tiny_font" class="col-1" style="margin-top:20px;">
+                        ${indicator}
+                     </div>
+                    <div id="tiny_font" class="col-2" style="margin-top:20px;font-weight: bold;">
                     <span style="border:1px solid rgb(117, 223, 117); padding: 5px;">Due:</span>
                     ${new Date(assign_to[counter][2].created_at).toLocaleDateString()}
                     </div>
@@ -133,11 +138,13 @@ function assignFrom() {
                         var gap = '<div style="height:1px;"></div>';
                     }
                 if (assign_from[counter][2].task_status == 1) {
+                    var indicator = '<div style="position:absolute;padding:3px; width:5px; border-radius:200px; background: lightgreen;"></div>';
                     var status = "<p style='color:green;margin:0;'>Competed</p>";
                 } else {
+                    var indicator = '<div style="position:absolute;padding:3px; width:5px; border-radius:200px; background: tomato;"></div>';
                     var status = "<p style='color:tomato;margin:0;'>Not Competed</p>";
                 }
-                if (assign_from[counter][1].task_status == 1) {
+                if (assign_from[counter][1].goal_status == 1) {
                     var status_goal = "<p style='color:green;margin:0;'>Competed</p>";
                 } else {
                     var status_goal = "<p style='color:tomato;margin:0;'>Not Competed</p>";
@@ -159,7 +166,10 @@ function assignFrom() {
                     <span style="border:1px solid rgb(117, 223, 117); padding: 5px; ">From:</span>
                     ${assign_from[counter][0].name}&nbsp;             
                     </div>
-                    <div id="tiny_font" class="col-3" style="margin-top:20px;font-weight: bold;">
+                    <div id="tiny_font" class="col-1" style="margin-top:20px;">
+                        ${indicator}
+                     </div>
+                    <div id="tiny_font" class="col-2" style="margin-top:20px;font-weight: bold;">
                        <span style="border:1px solid rgb(117, 223, 117); padding: 5px;">Due:</span>
                        ${new Date(assign_from[counter][2].created_at).toLocaleDateString()}
                     </div>
