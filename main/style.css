@@ -62,7 +62,7 @@
     width: 0%;
 }
 #spin_assign_spinner_1 {
-    z-index: 999999; 
+    z-index: 999; 
     position: absolute;
     margin-top: 100px;
 }

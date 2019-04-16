@@ -245,7 +245,6 @@ if (edit_a_task) {
 
         }
 
-
         const token = localStorage.getItem("goaltoken");
 
         const options = {

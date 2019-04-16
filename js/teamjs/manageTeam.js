@@ -5,9 +5,12 @@ const parsedUrl = new URL(window.location.href);
 const team_id = parsedUrl.searchParams.get("team_id");
 
 
+setInterval(() => {
+    loadOnlineCheck();
+}, 2000);
 
 
-
+loadOnlineCheck();
 loadTeamData();
 // Show Team single
 function loadTeamData() {
@@ -23,7 +26,6 @@ function loadTeamData() {
         }
     }
     axios.get(teamshowUrl, options).then(function (response) {
-        console.log(response.data)
 
         const one_team = response.data.data.one_team;
         _("#team_title").innerHTML = `
@@ -35,10 +37,41 @@ function loadTeamData() {
        
 
     }).catch(function (err) {
-        setTimeout(function () {
-            _("#spin_bx_del_goal").style.display = "none";
-            loadTeamData();
-        }, 2000)
+
+    })
+
+}
+
+// Show Team single
+function loadOnlineCheck() {
+    $member_id = _("#member_id_chat").value;
+    if ($member_id == "") {
+        return false;
+    }
+    const teamshowUrl = "https://goalsetterapi.herokuapp.com/api/refresh/chat/status/"+member_id;
+
+    const token = localStorage.getItem("goaltoken");
+
+    const options = {
+        headers: {
+            Authorization: token,
+        }
+    }
+        
+                             
+    axios.get(teamshowUrl, options).then(function (response) {
+        console.log(response.data)
+
+        const onlinePresence = response.data.data.onlinePresence;
+        _("#presence_status").innerHTML = ``;
+        if (onlinePresence) {
+            _("#presence_status").innerHTML = `<div style="color: lightgreen;">online</div>`;
+        }else{
+            _("#presence_status").innerHTML = `<div style="color: red;">offline</div >`;
+        }
+       
+    }).catch(function (err) {
+        console.log(err.response)
     })
 
 }

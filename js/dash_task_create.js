@@ -6,7 +6,6 @@ if (task_save) {
         e.preventDefault();
         const task_title = _("#task_title").value;
         const description = _("#task_description").value;
-        const begin_date = _("#task_begin_date").value;
         const due_date = _("#task_due_date").value;
         const begin_time = _("#begin_time").value;
         const due_time = _("#due_time").value;
@@ -29,7 +28,6 @@ if (task_save) {
         const taskData = {
             task_title: task_title,
             description: description,
-            begin_date: begin_date,
             due_date: due_date,
             begin_time: begin_time,
             due_time: due_time,

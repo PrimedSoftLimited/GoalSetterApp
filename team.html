@@ -231,7 +231,7 @@
                                     <td id="member_phone"></td>
                                 </tr>
                                 <tr>
-                                    <td>DATE CREATED</td>
+                                    <td>Date Created :</td>
                                     <td id="member_created"></td>
                                 </tr>
                             </tbody>
@@ -431,10 +431,7 @@
                         <h5 class="modal-title" id="chat_name">
                             <img  id="chat_image"src="images/text_loader.gif" />
                         </h5>
-                        <div id="presence_status">
-                            <div style="color: lightgreen;">online</div>
-                            <!-- <div style="color: red;">offline</div> -->
-                        </div>
+                        <div id="presence_status"></div>
                     </div>
                     
                     <button style="padding:5px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -557,6 +554,7 @@
         $(document).on("click", '.member_view', function () {
             var rel_id = $(this).data('getrelid');
             var member_id = $(this).data('getmemid');
+            var member_online = $(this).data('getmemonline');
             var member_name = $(this).data('getname');
             var member_phone = $(this).data('phone');
             var member_email = $(this).data('email');
@@ -567,11 +565,16 @@
             $("#member_id_assign").val(member_id);
             $("#member_id_delete").val(member_id);
             $("#rel_id_delete").val(rel_id);
+            if (member_online) {
+                $("#presence_status").html('<div style="color: lightgreen;">online</div>');
+            }else{
+                $("#presence_status").html('<div style="color: red;">offline</div>');
+            }        
             $("#member_name").html(member_name);
             $("#member_phone").html(member_phone);
             $("#member_email").html(member_email);
             $("#member_created").html(member_created);
-             $("#name_assign").html(member_name);
+            $("#name_assign").html(member_name);
            
 
              document.getElementById('member_user_image').src =  "http://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/" + member_user_image;

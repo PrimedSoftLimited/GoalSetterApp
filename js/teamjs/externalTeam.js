@@ -14,7 +14,7 @@ function loadExTeams() {
     }
     axios.get(teamshowUrl, options).then(function (response) {
         const external_team = response.data.data.team_members;
-
+        console.log(response.data)
         _("#spin_all_external_teams").style.display = "none";
         if (external_team == "") {
             _("#external_teams").innerHTML = `
@@ -26,6 +26,11 @@ function loadExTeams() {
         } else {
             _("#external_teams").innerHTML = ``;
             for (let counter = 0; counter < external_team.length; counter++) {
+                if (external_team[counter][3].onlinePresence) {
+                    $onlinePresence = '<div style="position:absolute; padding:5px; width:10px; border-radius:200px;background: lightgreen;" ></div>';
+                } else {
+                    $onlinePresence = '<div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: red;"></div>'
+                }
                     _("#external_teams").innerHTML += `
                        <div style="height:10px;"></div>
                         <div class="container-fluid">
@@ -36,8 +41,7 @@ function loadExTeams() {
                             </div>
                             <div id="tiny_font" class="col-4" style="margin-top:15px;font-weight: bold;">
                                 <span>
-                                <!-- <div style="position:absolute; padding:5px; width:10px; border-radius:200px; background: red;"></div> -->
-                                 <div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: lightgreen;"></div>
+                                ${$onlinePresence}
                                  <img style="border-radius: 50px;" src="http://res.cloudinary.com/getfiledata/image/upload/w_30,c_thumb,ar_4:4,g_face/${external_team[counter][0].user_image}" />
                                 </span>
                                 <span style="border:1px solid rgb(117, 223, 117); padding: 5px; ">Made By:</span>
@@ -72,7 +76,7 @@ function loadExTeams() {
                 </div>
         `;
     }).catch(function (err) {
-
+        console.log(err.response)
         
     })
 

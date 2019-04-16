@@ -74,10 +74,6 @@ function profileUser(allow = "") {
               <td>MOBILE</td>
               <td>${user.phone_number}</td>
             </tr>
-            <tr>
-              <td>ACCOUNT TYPE</td>
-              <td>${user.account_type} </td>
-            </tr>
 
             <tr>
               <td>DATE CREATED</td>

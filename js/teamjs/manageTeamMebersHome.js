@@ -22,7 +22,6 @@ function member() {
         }
     }
     axios.get(teamshowUrl, options).then(function (response) {
-
         const team_memebers = response.data.data.team_memebers;
         _("#spin_all_my_teams").style.display = "none";
         if (team_memebers == "") {
@@ -35,14 +34,18 @@ function member() {
         } else {
             _("#team_members").innerHTML = ``;
             for (let counter = 0; counter < team_memebers.length; counter++) {
+                if (team_memebers[counter][2].onlinePresence) {
+                    $onlinePresence = '<div style="position:absolute; padding:5px; width:10px; border-radius:200px;background: lightgreen;" ></div>';                   
+                }else{
+                    $onlinePresence = '<div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: red;"></div>'
+                }
                 _("#team_members").innerHTML += `
                         <div style="height:10px;"></div>
                             <div class="container-fluid">
                             <div class="row  goal_plate box_part">
                                 <div class="col-5" style="margin-top:5px; font-weight: bold;">
                                 <span>
-                                <!-- <div style="position:absolute; padding:5px; width:10px; border-radius:200px; background: red;"></div> -->
-                                 <div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: lightgreen;"></div>
+                                 ${$onlinePresence}
                                  <img style="border-radius: 50px;" src="http://res.cloudinary.com/getfiledata/image/upload/w_40,c_thumb,ar_4:4,g_face/${team_memebers[counter][0].user_image}" />
                                 </span>
                                 <span style="border:1px solid rgb(117, 223, 117); padding: 5px;">Name:</span> 
@@ -54,7 +57,7 @@ function member() {
                                 </div>
                                   <div id="btn_reduce" class="col col-2" style="margin-top:15px;">
                                     <a class="btn member_view"  data-getrelid="${team_memebers[counter][1].id}" data-getmemid="${team_memebers[counter][1].member_id}" data-getname="${team_memebers[counter][0].name}" 
-                                    data-phone="${team_memebers[counter][0].phone_number}" data-email="${team_memebers[counter][0].email}" data-userimage="${team_memebers[counter][0].user_image}"  
+                                     data-getmemonline="${team_memebers[counter][2].onlinePresence}" data-phone="${team_memebers[counter][0].phone_number}" data-email="${team_memebers[counter][0].email}" data-userimage="${team_memebers[counter][0].user_image}"  
                                     data-getadded="${new Date(team_memebers[counter][1].created_at).toLocaleDateString()}" 
                                     data-toggle="modal" data-target="#memberInfo">View</a>
                                     </div>
@@ -266,4 +269,4 @@ if (delete_member) {
 }
 setInterval(() => {
     member();
-}, 30000);
+}, 3000);

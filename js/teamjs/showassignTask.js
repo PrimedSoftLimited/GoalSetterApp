@@ -45,6 +45,11 @@ function assignTo(){
             } else {
                 var status_goal = "<p style='color:tomato;margin:0;'>Not Competed</p>";
             }
+            if (assign_to[counter][3].onlinePresence) {
+                $onlinePresence = '<div style="position:absolute; padding:5px; width:10px; border-radius:200px;background: lightgreen;" ></div>';
+            } else {
+                $onlinePresence = '<div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: red;"></div>';
+            }
         _("#assign_to_show").innerHTML += `
             ${gap}
             <div class="container-fluid">
@@ -55,8 +60,7 @@ function assignTo(){
                     </div>
                     <div id="tiny_font" class="col-4" style="margin-top:15px;font-weight: bold;">
                     <span>
-                        <!-- <div style="position:absolute; padding:5px; width:10px; border-radius:200px; background: red;"></div> -->
-                        <div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: lightgreen;"></div>
+                       ${$onlinePresence}
                         <img style="border-radius: 50px;" src="http://res.cloudinary.com/getfiledata/image/upload/w_30,c_thumb,ar_4:4,g_face/${assign_to[counter][0].user_image}" />
                     </span>
                     <span style="border:1px solid rgb(117, 223, 117); padding: 5px; ">To:</span>
@@ -99,7 +103,6 @@ function assignTo(){
      }
     }).catch(function (err) {
         _("#spin_assign_spinner_1").style.display = "none";
-        console.log(err.response);
     })
 
 }
@@ -149,6 +152,11 @@ function assignFrom() {
                 } else {
                     var status_goal = "<p style='color:tomato;margin:0;'>Not Competed</p>";
                 }
+                if (assign_from[counter][3].onlinePresence) {
+                    $onlinePresence = '<div style="position:absolute; padding:5px; width:10px; border-radius:200px;background: lightgreen;" ></div>';
+                } else {
+                    $onlinePresence = '<div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: red;"></div>';
+                }
                 _("#assign_from_show").innerHTML += `
                ${gap}
             <div class="container-fluid">
@@ -159,8 +167,7 @@ function assignFrom() {
                     </div>
                     <div id="tiny_font" class="col-4" style="margin-top:15px;font-weight: bold;">
                     <span>
-                        <!-- <div style="position:absolute; padding:5px; width:10px; border-radius:200px; background: red;"></div> -->
-                        <div style="position:absolute;padding:5px; width:10px; border-radius:200px; background: lightgreen;"></div>
+                        ${$onlinePresence}
                         <img style="border-radius: 50px;" src="http://res.cloudinary.com/getfiledata/image/upload/w_30,c_thumb,ar_4:4,g_face/${assign_from[counter][0].user_image}" />
                     </span>
                     <span style="border:1px solid rgb(117, 223, 117); padding: 5px; ">From:</span>
@@ -202,7 +209,7 @@ function assignFrom() {
         }
     }).catch(function (err) {
         _("#spin_assign_spinner_2").style.display = "none";
-        console.log(err.response);
+
     })
 
 }
@@ -252,7 +259,6 @@ if (completeTask) {
             assignFrom();
 
         }).catch(function (err) {
-            console.log(err.response)
             _("#spin_bx_com").style.display = "none";
 
 
